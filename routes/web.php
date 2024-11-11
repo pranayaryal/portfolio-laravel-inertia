@@ -5,13 +5,33 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
+
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Home');
+});
+
+Route::get('/address-cleaning-usps', function () {
+    return Inertia::render('AddressClean');
+});
+
+Route::get('/randomized-controlled-trials', function () {
+    return Inertia::render('WhatIsRct');
+});
+
+
+Route::get('/pubmed-randomized-controlled-trial', function () {
+    return Inertia::render('Rct');
 });
 
 Route::get('/dashboard', function () {
