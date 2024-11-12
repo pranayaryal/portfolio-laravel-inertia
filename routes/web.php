@@ -22,7 +22,10 @@ Route::get('/', function () {
 });
 
 Route::get('/address-cleaning-usps', function () {
-    return Inertia::render('AddressClean');
+    return Inertia::render('AddressClean', [
+        'uspsKey' => env('USPS_KEY'),
+        'uspsSec' => env('USPS_SECRET')
+    ]);
 });
 
 Route::get('/randomized-controlled-trials', function () {
@@ -34,6 +37,9 @@ Route::get('/pubmed-randomized-controlled-trial', function () {
     return Inertia::render('Rct');
 });
 
+
+// Route::post('/validate-address', [A]);
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -43,5 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';
