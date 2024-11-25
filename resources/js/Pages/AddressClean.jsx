@@ -1,31 +1,58 @@
 import MainLayout from "@/Layouts/MainLayout"
-import TextInput from "@/Components/TextInput"
+import { Head } from '@inertiajs/react';
 import InputLabel from "@/Components/InputLabel"
 import { states } from "@/Components/states"
 import { useState } from "react"
 
-export default function AddressClean({ uspsKey, uspsSec }) {
+
+export default function AddressClean() {
     const [showCopySection, setShowCopySection] = useState(false)
+    const [cp, setCp] = useState('Copy')
     const [address, setAddress] = useState({
         street: {
-            value: "325 west main streets",
+            value: '325 west main street',
             error: "",
         },
         city: {
-            value: "louisville",
+            value: 'Louisville',
             error: "",
         },
         state: {
-            value: "KY",
+            value: 'KY',
             error: "",
         },
         zip: {
-            value: "40202",
+            value: '40202',
             error: "",
         },
     });
+    const copyText = () => {
+        const divWhoseTextNeedsCopied = document.getElementById('addressSection');
+
+        copyToClipBoard(removeNewLines(divWhoseTextNeedsCopied.textContent));
+        setCp('Copied');
+        setTimeout(() => {
+            setCp('Copy');
+        }, 2000);
+
+    }
+
+    const removeNewLines = (str) => {
+        //return str.trim().replace(/(\r\n|\n|\r)/gm, "");
+        return str
+            .replace(/[\n\r\t]/g, '') // Remove newlines and tabs
+            .replace(/\s+/g, ' ')     // Replace multiple spaces with a single space
+            .trim();
+    }
+
+    const copyToClipBoard = (text) => {
+        navigator.clipboard.writeText(text)
+            .then(() => console.log('Text copied to clipboard'))
+            .catch(err => console.error(`Failed to copy text: ${err}`))
+    }
     const callValidate = async () => {
         try {
+            console.log(address.state.value)
             if (!validateAddress()) {
                 return;
             }
@@ -33,33 +60,54 @@ export default function AddressClean({ uspsKey, uspsSec }) {
                 streetAddress: address.street.value,
                 city: address.city.value,
                 state: address.state.value,
-                ZIPCode: address.zip.value,
+                zip: address.zip.value,
             }
-            const resp = await fetch('/validate-address', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
 
-            })
-
-            const respJson = await resp.json();
-            console.log(respJson)
-            if (respUspsAddJson.hasOwnProperty('error')) {
-                const { cleanedAddr: { error: { message } } } = respJson
-                const updatedAddress = { ...address }
-                updatedAddress.street.error = message
-                setAddress({ ...updatedAddress })
-                return
+            const headers = {
+                'Content-Type': 'application/json'
             }
-            const { cleanedAddr: { address: { streetAddress, city, state, ZIPCode } } } = respJson
-            const updatedAddress = { ...address }
-            updatedAddress.city.value = city
-            updatedAddress.state.value = state
-            updatedAddress.zip.value = ZIPCode
-            updatedAddress.street.value = streetAddress
-            setAddress({ ...updatedAddress })
+
+            const resp = await axios.post('/address-cleaning-usps', data)
+                .then((response) => {
+                    const { data } = response;
+                    const { cleanedAddr } = data
+                    const { streetAddress, city, state, ZIPCode } = cleanedAddr
+                    setShowCopySection(true)
+                    setAddress({
+                        street: {
+                            value: streetAddress,
+                            error: "",
+                        },
+                        city: {
+                            value: city,
+                            error: "",
+                        },
+                        state: {
+                            value: state,
+                            error: "",
+                        },
+                        zip: {
+                            value: ZIPCode,
+                            error: "",
+                        },
+                    })
+                })
+                .catch(err => console.error(err))
+
+            // if (respUspsAddJson.hasOwnProperty('error')) {
+            //     const { cleanedAddr: { error: { message } } } = respJson
+            //     const updatedAddress = { ...address }
+            //     updatedAddress.street.error = message
+            //     setAddress({ ...updatedAddress })
+            //     return
+            // }
+            // const { cleanedAddr: { address: { streetAddress, city, state, ZIPCode } } } = respJson
+            // const updatedAddress = { ...address }
+            // updatedAddress.city.value = city
+            // updatedAddress.state.value = state
+            // updatedAddress.zip.value = ZIPCode
+            // updatedAddress.street.value = streetAddress
+            // setAddress({ ...updatedAddress })
 
 
 
@@ -99,8 +147,27 @@ export default function AddressClean({ uspsKey, uspsSec }) {
             setAddress({ ...updatedState });
             return false;
         }
-
+        updatedState.street.value = sanitizeInput(updatedState.street.value);
+        updatedState.city.value = sanitizeInput(updatedState.city.value);
+        updatedState.state.value = sanitizeInput(updatedState.state.value);
+        updatedState.zip.value = sanitizeInput(updatedState.zip.value);
+        setAddress({ ...updatedState })
+        console.log(address)
         return true;
+
+    }
+
+    const sanitizeInput = (input) => {
+        return input
+            .replace(/>/g, '')
+            .replace(/</g, '')
+            // Replace quotes with their HTML entities
+            .replace(/"/g, '')
+            .replace(/'/g, '&#39;')
+            // Remove script tags and their content
+            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+            // Remove other potentially dangerous tags
+            .replace(/<(|\/)(script|iframe|object|embed|applet)[^>]*>/gi, '');
 
     }
 
@@ -116,6 +183,10 @@ export default function AddressClean({ uspsKey, uspsSec }) {
     };
     return (
         <MainLayout>
+            <Head>
+                <title>Validate an address using USPS Api</title>
+                <meta name="description" content="Use the USPS API to validate an address or to clean up an address in the US" />
+            </Head>
             <div className="min-h-screen">
                 <div className="mt-6 relative w-full max-w-2xl lg:max-w-7xl">
                     <img src='./usps.svg' className='w-28 h-28' />
@@ -155,8 +226,7 @@ export default function AddressClean({ uspsKey, uspsSec }) {
                                     className={`px-3 py-2 bg-white border appearance-none font-sans tracking-wide text-md ${address.state.error ? 'border-red-300' : 'border-gray-200'}`}
                                     onChange={(e) => onAddressChangeHandler("state", e.target.value)}>
                                     <option name="state"
-                                        value={address.state.value} className='text-black'>
-                                        Select state</option>
+                                        value={address.state.value} className='text-black'>{address.state.value}</option>
                                     {Object.keys(states).map(s => {
                                         return <option name="state"
                                             key={s}
@@ -171,6 +241,7 @@ export default function AddressClean({ uspsKey, uspsSec }) {
                                 </svg>
 
                             </div>
+                            {address.state.error && <span className='text-xs text-red-400'>{address.state.error}</span>}
                             <button
                                 onClick={callValidate}
                                 id='validate-button'
@@ -180,14 +251,14 @@ export default function AddressClean({ uspsKey, uspsSec }) {
 
                         </div>
                         {showCopySection &&
-                            <div id='addressDisplay' className='hidden text-xs border px-4 py-4 border-indigo-400 rounded relative'>
-                                <button onclick="copyText()" id="copyButton" className='absolute top-1 right-2 text-xs bg-green-200 px-2 py-1 rounded'>Copy</button>
+                            <div id='addressDisplay' className='text-xs border px-4 py-4 border-indigo-400 rounded relative'>
+                                <button onClick={copyText} className='absolute top-1 right-2 text-xs bg-green-200 px-2 py-1 rounded'>{cp}</button>
                                 <div id='addressSection'>
-                                    <p className="mt-3" id="line1Display">Address Line1</p>
+                                    <p className="mt-3" id="line1Display">{address.street.value}</p>
                                     <div className='flex space-x-3'>
-                                        <span id="cityDisplay">City </span>
-                                        <span id="stateDisplay">state</span>
-                                        <span id="zipDisplay">zip</span>
+                                        <span id="cityDisplay">{address.city.value}</span>
+                                        <span id="stateDisplay">{address.state.value}</span>
+                                        <span id="zipDisplay">{address.zip.value}</span>
                                     </div>
 
                                 </div>

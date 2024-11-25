@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AddressController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,11 +22,11 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-Route::get('/address-cleaning-usps', function () {
-    return Inertia::render('AddressClean', [
-        'uspsKey' => env('USPS_KEY'),
-        'uspsSec' => env('USPS_SECRET')
-    ]);
+Route::get('/address-cleaning-usps', [AddressController::class, 'show'])->name('address.show');
+Route::post('/address-cleaning-usps', [AddressController::class, 'validate'])->name('address.validate');
+
+Route::get('/pubmed-api', function() {
+    return Inertia::render('Pubmed');
 });
 
 Route::get('/randomized-controlled-trials', function () {
@@ -37,8 +38,15 @@ Route::get('/pubmed-randomized-controlled-trial', function () {
     return Inertia::render('Rct');
 });
 
+Route::get('/llm-models-with-coding', function () {
+    return Inertia::render('LlmCoding');
+});
 
-// Route::post('/validate-address', [A]);
+Route::get('/bm25-algorithm', function () {
+    return Inertia::render('Bm25');
+});
+
+// Route::post('/validate-address', [AddressController::class, 'validate']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

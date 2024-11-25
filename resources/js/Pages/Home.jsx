@@ -4,7 +4,10 @@ import MainLayout from '@/Layouts/MainLayout';
 export default function Home() {
     return (
         <MainLayout>
-            <Head title="Welcome" />
+            <Head>
+                <title>Pranay Aryal</title>
+                <meta name="description" content="Pranay Aryal's blog about software engineering"/>
+            </Head>
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
                 <a href="/randomized-controlled-trials"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
@@ -60,15 +63,6 @@ export default function Home() {
                     <div>
                         <h2 className="text-md md:text-xl font-semibold text-black">Set Up a Code Editor with LLMs</h2>
                         <p className="mt-2 text-xs lg:text-sm text-black/70">How to use Neovim with Large Language Models</p>
-                    </div>
-
-                </a>
-                <a href="/laravel-with-nextjs"
-                    className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
-                    <div>
-                        <h2 className="text-md md:text-xl font-semibold text-black">Laravel with NextJS</h2>
-
-                        <p className="mt-2 text-xs lg:text-sm text-black/70">How To Use NextJS as a front-end for Laravel</p>
                     </div>
 
                 </a>

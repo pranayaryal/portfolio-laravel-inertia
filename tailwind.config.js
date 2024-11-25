@@ -15,6 +15,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundColor: {
+                'vs-background': '#007ACC',
+                'code-background': '#1a2a39',
+                'pubmed-color': '#112e51',
+                'ubuntu-background': '#5e2750',
+            }
         },
     },
 

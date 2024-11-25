@@ -1,14 +1,20 @@
 import MainLayout from '@/Layouts/MainLayout';
 import NejmLogo from '@/Components/NejmLogo';
 import BaseTable from '@/Components/BaseTable';
+import { Head } from '@inertiajs/react';
 
 export default function WhatIsRct() {
     return (
       <MainLayout>
+        <Head>
+            <title>What is a Randomized Controlled Trial</title>
+            <meta name="description" content="An explanation about Randomized Controlled Trials of how they are designed and the source of biases" />
+        </Head>
         <div className="max-w-[600px] mx-auto">
             <NejmLogo />
             <h1 className="text-2xl font-bold mb-8">Randomized Controlled Trials</h1>
             <span className="leading-7 tracking-loose mt-12 border-b border-green-400">Definition:</span><span> This is an experiment that has a test group and a control group.  The word 'randomized' in the title means that all study participants have and equal chance of being in either the experimental group or the control group.  The word 'controlled' means that there is a control group to compare against.</span>
+            <p className='mt-4'>You can search for Randomized Controlled Trials <a className='text-blue-600' href="/pubmed-randomized-controlled-trial">here</a></p>
 
             <h1 className="text-xl font-bold mt-8">Why Randomize?</h1>
             <p className="mt-4 leading-7">We randomize so that the experimental and the study groups are similar.  If we don't randomize, we may end up having
