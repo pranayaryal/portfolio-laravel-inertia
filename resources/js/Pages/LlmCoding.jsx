@@ -8,8 +8,8 @@ export default function LlmCoding() {
     return (
         <MainLayout>
             <Head>
-                <title>How to use the PubMed Api</title>
-                <meta name="description" content="An explanation about to use the PubMed Api" />
+                <title>Configure A Text Editor for Large Language Models</title>
+                <meta name="description" content="How to configure a text editor like Neovim for Large Language Models (LLMs)" />
             </Head>
             <div class="max-w-[500px] mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" role="img" width="173" height="50" viewBox="0 0 742 214" aria-label="Neovim">

@@ -4,7 +4,10 @@ import MainLayout from '@/Layouts/MainLayout';
 export default function About() {
     return (
         <MainLayout>
-            <Head title="About" />
+            <Head>
+                <title>About Pranay Aryal</title>
+                <meta name="description" content="Pranay Aryal is a software engineer and is available for consulting"/>
+            </Head>
             <div className="text-black/90">
                 <div className="min-h-screen max-w-[500px] mx-auto">
                     <div className="mt-20 relative w-full max-w-2xl lg:max-w-7xl">
