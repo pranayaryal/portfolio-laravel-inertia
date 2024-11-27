@@ -10,19 +10,19 @@ export default function AddressClean() {
     const [cp, setCp] = useState('Copy')
     const [address, setAddress] = useState({
         street: {
-            value: '325 west main street',
+            value: '',
             error: "",
         },
         city: {
-            value: 'Louisville',
+            value: '',
             error: "",
         },
         state: {
-            value: 'KY',
+            value: '',
             error: "",
         },
         zip: {
-            value: '40202',
+            value: '',
             error: "",
         },
     });
