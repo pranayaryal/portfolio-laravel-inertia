@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/react';
 import InputLabel from "@/Components/InputLabel"
 import { states } from "@/Components/states"
 import { useState } from "react"
+import { CodeAmber, CodeSky } from "@/Components/CodeColors";
 
 
 export default function AddressClean() {
@@ -178,6 +179,7 @@ export default function AddressClean() {
                 error: '',
             },
         };
+        setShowCopySection(false);
 
         setAddress({ ...address, ...state });
     };
@@ -191,7 +193,8 @@ export default function AddressClean() {
                 <div className="mt-6 relative w-full max-w-2xl lg:max-w-7xl">
                     <img src='./usps.svg' className='w-28 h-28' />
                     <h1 className='text-3xl mt-8'>Using the USPS Address Cleaner</h1>
-                    <p className='mt-8 text-xs text-black/50'>Enter an address. You can copy from <a className="text-indigo-500" href="https://maps.google.com" target="__blank">Google Maps</a></p>
+                    <p className='mt-8 text-xs text-black/50'>Enter an address that you want to be standardized. You can copy from
+                        <a className="text-indigo-500" href="https://maps.google.com" target="__blank"> Google Maps</a></p>
                     <div className='flex flex-col md:flex-row md:justify-start items-start space-y-8 md:space-y-0 md:space-x-40'>
                         <div className='flex flex-col mt-2 w-[90%] md:w-1/3'>
                             <InputLabel value='Address' className='text-xs text-black/45' />
@@ -267,8 +270,34 @@ export default function AddressClean() {
                         }
 
                     </div>
-                    <p class='mt-32 text-3xl'>What is the Best Way to do Address Cleaning?</p>
-                    <p class='mt-8'>The best way to do this would be to use USPS API</p>
+                    <div className='leading-8'>
+                        <p class='mt-32 text-3xl'>What is the Best Way to do Address Cleaning?</p>
+                        <p class='mt-8'>The best way to do this would be to use USPS API. This is what I have implemented above.</p>
+                        <p>You will need to create a USPS Business Account</p>
+                        <p>Then visit this page on <a class="text-blue-300" href="https://developer.usps.com/getting-started">developer portal</a></p>
+                        <p>Follow instructions on how to generate your OAuth token</p>
+                        <p className="mt-4">Once you get your client-id and client-secret, store them in a safe place</p>
+                        <p className="mt-4">You will first need to call the /token endpoint like this:</p>
+                        <pre className="bg-[#232635] w-2/3 mt-8 text-white p-8 rounded-md">
+                            <CodeAmber>{`axios.post('https://api.usps.com/oauth2/v3/token', {`}</CodeAmber>
+                            <div class='ml-2'>
+                                <CodeSky>{`grant_type: 'client_credentials',`}</CodeSky>
+                                <p>{`client_id: '<your client-id>'`}</p>
+                                <p>{`client_secret: '<your client-secret>'`}</p>
+                                <p>{`scope: 'addresses'`}</p>
+                                <p>{`state: ''`}</p>
+                            </div>
+                            <p>{`})`}</p>
+                            <p>{`.then(function (response) {`}</p>
+                            <p className="ml-2">{`console.log(response);`}</p>
+                            <p>{`})`}</p>
+                            <p>{`.catch(function (error) {`}</p>
+                            <p className="ml-2">console.log(error);</p>
+                            <p>{`})`}</p>
+
+                        </pre>
+
+                    </div>
                 </div>
             </div>
 
