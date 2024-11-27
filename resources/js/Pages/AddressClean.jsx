@@ -190,7 +190,7 @@ export default function AddressClean() {
             <div className="min-h-screen">
                 <div className="mt-6 relative w-full max-w-2xl lg:max-w-7xl">
                     <img src='./usps.svg' className='w-28 h-28' />
-                    <h1 className='text-3xl font-semibold mt-8'>Using the USPS Address Cleaner</h1>
+                    <h1 className='text-3xl mt-8'>Using the USPS Address Cleaner</h1>
                     <p className='mt-8 text-xs text-black/50'>Enter an address. You can copy from <a className="text-indigo-500" href="https://maps.google.com" target="__blank">Google Maps</a></p>
                     <div className='flex flex-col md:flex-row md:justify-start items-start space-y-8 md:space-y-0 md:space-x-40'>
                         <div className='flex flex-col mt-2 w-[90%] md:w-1/3'>
@@ -267,6 +267,8 @@ export default function AddressClean() {
                         }
 
                     </div>
+                    <p class='mt-32 text-3xl'>What is the Best Way to do Address Cleaning?</p>
+                    <p class='mt-8'>The best way to do this would be to use USPS API</p>
                 </div>
             </div>
 
