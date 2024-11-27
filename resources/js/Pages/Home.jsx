@@ -7,6 +7,7 @@ export default function Home() {
             <Head>
                 <title>Pranay Aryal</title>
                 <meta name="description" content="Pranay Aryal's blog about software engineering"/>
+                <link rel="canonical" href="https://pranaysite.com" />
             </Head>
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
                 <a href="/randomized-controlled-trials"
