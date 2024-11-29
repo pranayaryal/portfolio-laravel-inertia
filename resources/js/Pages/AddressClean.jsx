@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import InputLabel from "@/Components/InputLabel"
 import { states } from "@/Components/states"
 import { useState } from "react"
-import { CodeAmber, CodeSky } from "@/Components/CodeColors";
+import { CodeAmber, CodeSky, CodeViolet } from "@/Components/CodeColors";
 
 
 export default function AddressClean() {
@@ -186,7 +186,7 @@ export default function AddressClean() {
     return (
         <MainLayout>
             <Head>
-                <title>Validate an address using USPS Api</title>
+                <title>Validate an address using USPS API</title>
                 <meta name="description" content="Use the USPS API to validate an address or to clean up an address in the US" />
             </Head>
             <div className="min-h-screen">
@@ -277,25 +277,43 @@ export default function AddressClean() {
                         <p>Then visit this page on <a class="text-blue-300" href="https://developer.usps.com/getting-started">developer portal</a></p>
                         <p>Follow instructions on how to generate your OAuth token</p>
                         <p className="mt-4">Once you get your client-id and client-secret, store them in a safe place</p>
-                        <p className="mt-4">You will first need to call the /token endpoint like this:</p>
+                        <p className="mt-4">You will first need to call the <span class='bg-pink-300'>/token</span> endpoint like this:</p>
                         <pre className="bg-[#232635] w-2/3 mt-8 text-white p-8 rounded-md">
-                            <CodeAmber>{`axios.post('https://api.usps.com/oauth2/v3/token', {`}</CodeAmber>
+                            <CodeAmber>{`axios.`}</CodeAmber><CodeViolet>post</CodeViolet><span className="text-pink-300">{`('https://api.usps.com/oauth2/v3/token', {`}</span>
                             <div class='ml-2'>
-                                <CodeSky>{`grant_type: 'client_credentials',`}</CodeSky>
-                                <p>{`client_id: '<your client-id>'`}</p>
-                                <p>{`client_secret: '<your client-secret>'`}</p>
-                                <p>{`scope: 'addresses'`}</p>
-                                <p>{`state: ''`}</p>
+                                <p>grant_type: <span class='text-pink-300'>{`'client_credentials',`}</span></p>
+                                <p>client_id: <span class='text-pink-300'>{`'<your client-id>',`}</span></p>
+                                <p>client_secret: <span class='text-pink-300'>{`'<your client-secret>',`}</span></p>
+                                <p>scope: <span class='text-pink-300'>{`'addresses',`}</span></p>
+                                <p>state:<span className="text-pink-300">''</span></p>
                             </div>
                             <p>{`})`}</p>
-                            <p>{`.then(function (response) {`}</p>
-                            <p className="ml-2">{`console.log(response);`}</p>
+                            <p><CodeViolet>.then(function</CodeViolet>{`(response) {`}</p>
+                            <p className="ml-2 text-green-300">{`//store the token in a variable`}</p>
                             <p>{`})`}</p>
-                            <p>{`.catch(function (error) {`}</p>
-                            <p className="ml-2">console.log(error);</p>
+                            <p><CodeViolet>.catch(function</CodeViolet>{`(error) {`}</p>
+                            <p className="ml-2 text-green-200">//Do something with your error</p>
                             <p>{`})`}</p>
 
+
                         </pre>
+                        <p className="mt-12">After this you will need to call the <span className="bg-pink-300">/addresses </span>endpoint like this
+                            with a GET request:</p>
+                        <pre className="bg-[#232635] w-2/3 mt-8 text-white p-8 rounded-md">
+                            <CodeAmber>{`axios.`}</CodeAmber><CodeViolet>get</CodeViolet><span className="text-pink-300">{`('https://api.usps.com/addresses/v3/address?`}</span>
+                            <div className='ml-4'>
+                                <p className="text-pink-300">{`streetAddress=<street>&city=<city>')`}</p>
+                                <p className="text-pink-300">{`&state=<state>&ZIPCode=<zip>')`}</p>
+                            </div>
+                            <p><CodeViolet>.then(function</CodeViolet>{`(response) {`}</p>
+                            <p className="ml-2 text-green-300">{`//Do something with the response`}</p>
+                            <p className="ml-2 text-green-300">{`//which should have a cleaned address`}</p>
+                            <p>{`})`}</p>
+                            <p><CodeViolet>.catch(function</CodeViolet>{`(error) {`}</p>
+                            <p className="ml-2 text-green-200">// Handle the error</p>
+                            <p>{`})`}</p>
+                        </pre>
+                        <p className="mt-8">The HEADER needs to have an Authorization with the Bearer token you retrieved in the above POST request</p>
 
                     </div>
                 </div>
