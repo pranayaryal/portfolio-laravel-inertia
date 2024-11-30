@@ -300,7 +300,7 @@ export default function AddressClean() {
                             </div>
                             <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Then Call the Addresses Endpoint</h1>
                         </div>
-                        <pre className="bg-[#232635] w-full mt-8 text-white p-8 rounded-md">
+                        <pre className="bg-[#232635] w-full mt-8 text-white overflow-hidden p-8 rounded-md">
                             <p><CodeViolet>const</CodeViolet>{` config = {`}</p>
                             <p className='ml-4'>{`headers: {`}</p>
                             <p class="text-green-300 ml-6">{`'Authorization': 'Bearer YOUR_ACCESS_TOKEN',`}</p>
