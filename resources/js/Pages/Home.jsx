@@ -10,7 +10,7 @@ export default function Home() {
                 <link rel="canonical" href="https://pranaysite.com" />
             </Head>
             <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-                <a href="/randomized-controlled-trials"
+                <Link href="/randomized-controlled-trials"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
 
 
@@ -20,8 +20,8 @@ export default function Home() {
                         <p className="mt-2 text-xs lg:text-sm text-black/70">Learn about Randomized Controlled Trials</p>
                     </div>
 
-                </a>
-                <a href="/pubmed-randomized-controlled-trial"
+                </Link>
+                <Link href="/pubmed-randomized-controlled-trial"
                     className="flex flex-col items-start justify-center gap-4 rounded-lg bg-white p-6  ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none">
 
                     <div>
@@ -30,8 +30,8 @@ export default function Home() {
                         <p className="mt-2 text-xs text-black/70 md:text-md">Search PubMed for a Randomized Controlled Trial</p>
                     </div>
 
-                </a>
-                <a href="/address-cleaning-usps" id="docs-card"
+                </Link>
+                <Link href="/address-cleaning-usps" id="docs-card"
                     className="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6  ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:p-10 lg:pb-10">
 
                     <div className="relative flex items-center gap-6 lg:items-end">
@@ -47,10 +47,10 @@ export default function Home() {
                         </div>
 
                     </div>
-                </a>
+                </Link>
 
 
-                <a href="/pubmed-api"
+                <Link href="/pubmed-api"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
                     <div>
                         <h2 className="text-md md:text-xl font-semibold text-black">PubMed Api</h2>
@@ -58,17 +58,17 @@ export default function Home() {
                         <p className="mt-2 text-xs lg:text-sm text-black/70">How to use pubMed Api</p>
                     </div>
 
-                </a>
-                <a href="/llm-models-with-coding"
+                </Link>
+                <Link href="/llm-models-with-coding"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
                     <div>
                         <h2 className="text-md md:text-xl font-semibold text-black">Set Up a Code Editor with LLMs</h2>
                         <p className="mt-2 text-xs lg:text-sm text-black/70">How to use Neovim with Large Language Models</p>
                     </div>
 
-                </a>
+                </Link>
 
-                <a href="/bm25-algorithm"
+                <Link href="/bm25-algorithm"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
 
                     <div>
@@ -77,7 +77,7 @@ export default function Home() {
                         <p className="mt-2 text-xs lg:text-sm text-black/70">What is BM25 Algorithm</p>
                     </div>
 
-                </a>
+                </Link>
 
             </div>
 
