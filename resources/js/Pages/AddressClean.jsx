@@ -4,7 +4,8 @@ import InputLabel from "@/Components/InputLabel"
 import { states } from "@/Components/states"
 import { useState } from "react"
 import { CodeAmber, CodeSky, CodeViolet } from "@/Components/CodeColors";
-import TokenAxios from "@/Components/TokenAxios";
+import TokenLanguages from "@/Components/TokenLanguages";
+import AddressLanguages from "@/Components/AddressLanguages";
 
 
 export default function AddressClean() {
@@ -291,7 +292,7 @@ export default function AddressClean() {
                             <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">First Call the Token Api</h1>
                         </div>
                         <pre className="bg-[#232635] w-full mt-8 text-white p-8 rounded-md">
-                            <TokenAxios />
+                            <TokenLanguages />
                         </pre>
                         <div class='step flex md:items-center space-x-4 py-4 mt-12'>
                             <div
@@ -301,24 +302,7 @@ export default function AddressClean() {
                             <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Then Call the Addresses Endpoint</h1>
                         </div>
                         <pre className="bg-[#232635] w-full mt-8 text-white overflow-hidden p-8 rounded-md">
-                            <p><CodeViolet>const</CodeViolet>{` config = {`}</p>
-                            <p className='ml-4'>{`headers: {`}</p>
-                            <p class="text-green-300 ml-6">{`'Authorization': 'Bearer YOUR_ACCESS_TOKEN',`}</p>
-                            <p class="text-green-300 ml-6">{`'Content-Type': 'application/json',`}</p>
-                            <p className="ml-4">{`}`}</p>
-                            <p className="mb-4">{`};`}</p>
-                            <CodeAmber>{`axios.`}</CodeAmber><CodeViolet>get</CodeViolet><span className="text-pink-300">{`('https://api.usps.com/addresses/v3/address?`}</span>
-                            <div className='ml-4'>
-                                <p className="text-pink-300">{`streetAddress=<street>&city=<city>'`}</p>
-                                <p className="text-pink-300">{`&state=<state>&ZIPCode=<zip>'`}<span className="text-white">,config)</span></p>
-                            </div>
-                            <p><CodeViolet>.then(function</CodeViolet>{`(response) {`}</p>
-                            <p className="ml-4 text-green-300 text-xs">{`// Do something with the response`}</p>
-                            <p className="ml-4 text-green-300 text-xs">{`// which should have a cleaned address`}</p>
-                            <p>{`})`}</p>
-                            <p><CodeViolet>.catch(function</CodeViolet>{`(error) {`}</p>
-                            <p className="ml-4 text-green-200 text-xs">// Handle the error</p>
-                            <p>{`})`}</p>
+                            <AddressLanguages />
                         </pre>
                         <p className="mt-8">The HEADER needs to have an Authorization with the Bearer token you retrieved in the above POST request</p>
 
