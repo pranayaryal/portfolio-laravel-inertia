@@ -2,7 +2,7 @@ import { CodeAmber, CodeViolet } from './CodeColors';
 
 export default function TokenAxios() {
     return (
-        <div className='text-xs md:text-sm overflow-hidden'>
+        <div className='overflow-hidden'>
             <CodeAmber>{`axios.`}</CodeAmber><CodeViolet>post</CodeViolet><span className="text-pink-300">{`('https://api.usps.com/oauth2/v3/token', {`}</span>
             <div class='ml-2'>
                 <p>grant_type: <span class='text-pink-300'>{`'client_credentials',`}</span></p>
