@@ -272,6 +272,7 @@ export default function AddressClean() {
                         }
 
                     </div>
+                    <img src="./postman.svg"/>
                     <div className='leading-8'>
                         <p class='mt-32 text-3xl'>What is the Best Way to do Address Cleaning?</p>
                         <p class='mt-8'>The best way to do this would be to use USPS API. This is what I have implemented above.</p>

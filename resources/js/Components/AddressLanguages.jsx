@@ -47,8 +47,8 @@ export default function AddressLanguages() {
             <p className='text-green-300'>streetAddress=[street]&city=[city]&state=[state]</p>
             <p className='text-green-300'>&ZIPCode=[city]";</p>
             <p className='mt-4'>$response = <CodeSky>Http::<CodeViolet>withHeaders([</CodeViolet></CodeSky></p>
-            <p className='ml-4'>'Content-Type' => <span className='text-green-300'>'application/json'</span></p>
-            <p className='ml-4'>'Authorization' => <span className='text-green-300'>'Bearer [token]'</span></p>
+            <p className='ml-4'>{`'Content-Type' =>`} <span className='text-green-300'>'application/json'</span></p>
+            <p className='ml-4'>{`'Authorization' =>`} <span className='text-green-300'>'Bearer [token]'</span></p>
             <p>{`->`}<CodeViolet>get</CodeViolet>($url);</p>
         </div>
     };

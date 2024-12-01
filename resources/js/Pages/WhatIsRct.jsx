@@ -7,8 +7,8 @@ export default function WhatIsRct() {
     return (
       <MainLayout>
         <Head>
-            <title>What is a Randomized Controlled Trial</title>
-            <meta name="description" content="An explanation about Randomized Controlled Trials of how they are designed and the source of biases" />
+            <title>What is a Randomized Controlled Trial in Research?</title>
+            <meta name="description" content="An explanation about Randomized Controlled Trials (RCT) of how they are designed and the source of biases" />
         </Head>
         <div className="max-w-[600px] mx-auto">
             <NejmLogo />

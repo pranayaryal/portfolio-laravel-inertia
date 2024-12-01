@@ -83,7 +83,7 @@ export default function Rct() {
     return (
         <MainLayout>
             <Head>
-                <title>Search PubMed for a Randomized Controlled Trial</title>
+                <title>Search PubMed for a Randomized Controlled Trial (RCT)</title>
                 <meta name='description' content="This uses pubmed api to search pubmed for Randomized Controlled Trial or a Review"/>
             </Head>
             <div className="min-h-screen">
