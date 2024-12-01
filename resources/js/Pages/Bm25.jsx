@@ -7,7 +7,6 @@ export default function Bm25() {
     return (
         <MainLayout>
             <Head>
-                <link rel="canonical" href="https://pranaysite.com/bm25-algorithm" />
                 <title>What is BM25 Algorithm (Best Match 25)</title>
                 <meta name="description" content="BM25 (Best Match 25) is a search method thanks ranks documents based on a search query" />
             </Head>
