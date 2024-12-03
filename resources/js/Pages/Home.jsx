@@ -68,7 +68,7 @@ export default function Home() {
 
                 </Link>
 
-                <Link href="/bm25-algorithm"
+                <Link href="/what-is-bm25-algorithm"
                     className="flex items-start gap-4 rounded-lg bg-white p-6 ring-1 ring-white/[0.05] transition duration-300  hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 ">
 
                     <div>
