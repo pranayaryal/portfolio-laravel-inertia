@@ -20,7 +20,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="canonical" href="https://pranaysite.com/bm25-algorithm" />
+    <link rel="canonical" href="https://pranaysite.com/what-is-bm25-algorithm" />
 
     <!-- Scripts -->
     @routes

@@ -42,7 +42,7 @@ Route::get('/llm-models-with-coding', function () {
     return Inertia::render('LlmCoding');
 });
 
-Route::get('/what-is-bm25-algorithm', function () {
+Route::get('/bm25-algorithm', function () {
     return Inertia::render('Bm25');
 });
 
