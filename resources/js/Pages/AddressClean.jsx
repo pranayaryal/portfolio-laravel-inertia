@@ -188,13 +188,27 @@ export default function AddressClean() {
     return (
         <MainLayout>
             <Head>
-                <title>Validate an address using USPS API</title>
+                <title>Validate a US address using USPS API</title>
                 <meta name="description" content="Use the USPS API to validate an address or to clean up an address in the US" />
             </Head>
             <div className="min-h-screen">
                 <div className="mt-6 relative max-w-[550px] mx-auto">
                     <img src='./usps.svg' className='w-28 h-28' />
-                    <h1 className='text-3xl mt-8'>Using the USPS Address Cleaner</h1>
+                    <h1 class="text-md md:text-xl font-bold text-left mt-8 text-gray-900">
+                        Table of contents:
+                    </h1>
+                    <div class="mt-2 leading-6 md:leading-7">
+                        <p>1. Clean an Address Using USPS API</p>
+                        <p>2. How to Use the USPS API</p>
+                    </div>
+                    <img src="./postman.svg"/>
+                    <div class='step flex md:items-center space-x-4 py-4 mt-12'>
+                        <div
+                            class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
+                            1
+                        </div>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Clean a US Address Using USPS API</h1>
+                    </div>
                     <p className='mt-8 text-xs text-black/50'>Enter an address that you want to be standardized. You can copy from
                         <a className="text-indigo-500" href="https://maps.google.com" target="__blank"> Google Maps</a></p>
                     <div className='flex flex-col md:flex-row md:justify-start items-start space-y-8 md:space-y-0 md:space-x-40'>
@@ -272,40 +286,34 @@ export default function AddressClean() {
                         }
 
                     </div>
-                    <img src="./postman.svg"/>
+                    <div class='step flex md:items-center space-x-4 py-4 mt-16'>
+                        <div
+                            class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
+                            2
+                        </div>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How can I Clean An Address Using the USPS API</h1>
+                    </div>
                     <div className='leading-8'>
-                        <p class='mt-32 text-3xl'>What is the Best Way to do Address Cleaning?</p>
-                        <p class='mt-8'>The best way to do this would be to use USPS API. This is what I have implemented above.</p>
-                        <p>You will need to create a USPS Business Account</p>
-                        <p>Then visit this page on <a class="text-blue-300" href="https://developer.usps.com/getting-started">developer portal</a></p>
-                        <p>Follow instructions on how to generate your OAuth token</p>
-                        <p className="mt-4">Once you get your client-id and client-secret, store them in a safe place</p>
-                        <p className="mt-4">You will need to do this in 2 steps:</p>
-                        <div className='ml-8'>
-                            <p>1. First Call the Token Api</p>
-                            <p>2. Then Call the Addresses Api</p>
+                        <p class='mt-8'>Follow these steps to use the USPS API.</p>
+                        <div class="mt-2 leading-6 md:leading-7">
+                            <p>1. Create a USPS business account</p>
+                            <p>2. Visit this page on the <a class="text-blue-300" href="https://developer.usps.com/getting-started">developer portal</a></p>
+                            <p>3. Follow instructions on how to generate your OAuth token</p>
+                            <p>4. Once you get your client-id and client-secret, store them in a safe place</p>
+
                         </div>
-                        <div class='step flex md:items-center space-x-4 py-4 mt-12'>
-                            <div
-                                class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
-                                1
-                            </div>
-                            <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">First Call the Token Api</h1>
-                        </div>
+                        <p className="mt-8">To clean an address you will need to do these steps:</p>
+                        <p>1. First Call the Token Api</p>
+                        <p>2. Then Call the Addresses Api</p>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-xl mb-0 mt-16">1. First Call the Token Api</h1>
                         <pre className="bg-[#232635] w-full mt-8 text-white p-8 rounded-md">
                             <TokenLanguages />
                         </pre>
-                        <div class='step flex md:items-center space-x-4 py-4 mt-12'>
-                            <div
-                                class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
-                                2
-                            </div>
-                            <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Then Call the Addresses Endpoint</h1>
-                        </div>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-xl mt-16">2. Then Call the Addresses Endpoint</h1>
                         <pre className="bg-[#232635] w-full mt-8 text-white overflow-hidden p-8 rounded-md">
                             <AddressLanguages />
                         </pre>
-                        <p className="mt-8">The HEADER needs to have an Authorization with the Bearer token you retrieved in the above POST request</p>
+                        <p className="mt-16">You should get a validated address after this.</p>
 
                     </div>
                 </div>
