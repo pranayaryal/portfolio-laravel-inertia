@@ -8,8 +8,8 @@ export default function LlmCoding() {
     return (
         <MainLayout>
             <Head>
-                <title>Configure A Text Editor for Large Language Models</title>
-                <meta name="description" content="How to configure a text editor like Neovim for Large Language Models (LLMs)" />
+                <title>Use LLMs in Neovim code editor using gen.nvim plugin</title>
+                <meta name="description" content="How to use Neovim code editor with LLMs using the gen.nvim plugin" />
             </Head>
             <div class="max-w-[500px] mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" role="img" width="173" height="50" viewBox="0 0 742 214" aria-label="Neovim">
@@ -39,19 +39,19 @@ export default function LlmCoding() {
                         </g>
                     </g>
                 </svg>
-                <h1 class="text-xl md:text-2xl font-bold mt-8">How To Use Large Language Models (LLMs) During Coding</h1>
+                <h1 class="text-xl md:text-2xl font-bold mt-8">How To Use Large Language Models (LLMs) in Neovim code editor using gen.nvim</h1>
                 <h1 class="text-md md:text-xl font-bold text-left mt-8 text-gray-900">
                     Table of contents:
                 </h1>
                 <div class="mt-2 leading-6 md:leading-7">
-                    <p>1. Why Should You Use A Large Language Model In Your Computer</p>
-                    <p>2. How to Download a Large Language Model (LLM)</p>
-                    <p>3. How to Set Up A Basic Neovim Code Editor</p>
+                    <p>1. Why Should You Use A LLM In Your Computer</p>
+                    <p>2. How to Download a Large Language Model (LLM) using Ollama</p>
+                    <p>3. How to Set Up A Basic Neovim Code Editor From Scratch</p>
                     <p>4. Install The Plugin gen.nvim In Your Neovim To Use an LLM</p>
                     <p>5. Use The Large Language Model In Your Code Editor</p>
                 </div>
 
-                <p class='mt-12'>They say video creates engagement and is good for SEO, so I also created a video on this.</p>
+                <p class='mt-12'>Here is the video where I show how to have LLM in neovim code editor using the plugin gen.nvim.</p>
                 <iframe class="w-[95%] mt-8" width="560" height="315" src="https://www.youtube.com/embed/oQnXAOjMQOw?si=0SIOD-3XRiclECSp" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
                 <div class='step flex md:items-center space-x-4 py-4 mt-12'>
@@ -59,7 +59,7 @@ export default function LlmCoding() {
                         class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
                         1
                     </div>
-                    <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Why Use LLM in Your Computer</h1>
+                    <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Why Should You Use LLM in Your Computer</h1>
                 </div>
                 <p class='mt-6'>You can download LLMs and use it as a compressed form of internet without you needing an internet connection.</p>
                 <p class='mt-4 md:mt-2'>This is better than ChatGPT because you don't have to give your data away.</p>
@@ -70,13 +70,13 @@ export default function LlmCoding() {
                         class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
                         2
                     </div>
-                    <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How To Download An LLM</h1>
+                    <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How To Download An LLM using Ollama</h1>
                 </div>
                 <p class='mt-6 md:mt-4'><a href="https://ollama.com/" class='text-blue-500' target="__blank">Ollama</a> is a great tool that packages LLMs in a way you can use in your computer.</p>
                 <p class='mt-4 md:mt-2'>You can download the <span class='text-blue-500'>llama3</span> model</p>
                 <p class='mt-4 md:mt-2'>After you download ollama you can use the below command command; the model will download and a chat will open up in the terminal</p>
                 <p class='mt-4 md:mt-2'>You can use it as a chat interface to ask any questions.</p>
-                <p class='mt-4 md:mt-2'>This chat is also available through an API endpoint which will be used in your neovim</p>
+                <p class='mt-4 md:mt-2'>This chat is also available through an API endpoint which will be used in your neovim code editor</p>
                 <div class='bg-ubuntu-background rounded-md px-3 py-3 mt-4'>
                     <div class='flex space-x-2 items-center'>
                         <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -122,7 +122,7 @@ export default function LlmCoding() {
                 class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
                 3
             </div>
-            <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How To  Set Up A Basic Neovim Code Editor</h1>
+            <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How To  Set Up A Basic Neovim Code Editor From Scratch</h1>
       </div>
       <p class='mt-4'>Why Neovim?  This is a light-weighted code-editor that you can customize for yourself.</p>
       <p class='mt-2'>Here is a good <a
@@ -138,7 +138,8 @@ export default function LlmCoding() {
       </div>
       <p class='mt-4'>Once you have set up your <span class='text-red-500'>init.lua</span>, go to gen.nvim
         <a target="__blank" class='text-blue-500' href="https://github.com/David-Kunz/gen.nvim"> repository</a> by David Kunz</p>
-      <p class="mb-4 mt-4">You will see this code in the README.md. Add this code to your <span class='bg-orange-400 px-1 rounded-sm'>init.lua</span> file. Note that the model is 'llama3'</p>
+      <p class="mb-4 mt-4">You will see this code in the README.md. Add this code to your <span class='bg-orange-400 px-1 rounded-sm'>init.lua</span> file.
+      Note that the model is 'llama3' in the example below.  You can use any model available in llama but be sure to change your init.lua accordingly.</p>
 
       <div class="flex mt-4 text-white rounded-md text-xs md:text-sm">
         <div class='hidden md:flex md:flex-col space-y-8 bg-vs-background w-[45px] py-5 px-3'>
