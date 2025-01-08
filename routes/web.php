@@ -22,7 +22,7 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-Route::get('/address-cleaning-usps', [AddressController::class, 'show'])->name('address.show');
+Route::get('/usps-address-validation-api', [AddressController::class, 'show'])->name('address.show');
 Route::post('/address-cleaning-usps', [AddressController::class, 'validate'])->name('address.validate');
 
 Route::get('/pubmed-api', function() {

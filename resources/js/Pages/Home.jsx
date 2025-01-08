@@ -31,7 +31,7 @@ export default function Home() {
                     </div>
 
                 </Link>
-                <Link href="/address-cleaning-usps" id="docs-card"
+                <Link href="/usps-address-validation-api" id="docs-card"
                     className="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6  ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:p-10 lg:pb-10">
 
                     <div className="relative flex items-center gap-6 lg:items-end">
