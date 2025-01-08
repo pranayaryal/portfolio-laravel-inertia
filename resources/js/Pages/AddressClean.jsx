@@ -188,24 +188,25 @@ export default function AddressClean() {
     return (
         <MainLayout>
             <Head>
-                <title>Validate a US address using USPS API</title>
-                <meta name="description" content="Use the USPS API to validate an address or to clean up an address in the US" />
+                <title>Validate a US address using USPS API using Python, Javascript or PHP</title>
+                <meta name="description" content="USPS API using python, javascript and PHP to validate an address or to clean up an address in the US" />
             </Head>
             <div className="min-h-screen">
-                <div className="mt-6 relative max-w-[550px] mx-auto">
+                <div className="mt-6 relative max-w-[700px] mx-auto">
                     <img src='./usps.svg' className='w-28 h-28' />
                     <h1 class="text-md md:text-xl font-bold text-left mt-8 text-gray-900">
                         Table of contents:
                     </h1>
                     <div class="mt-2 leading-6 md:leading-7">
-                        <p>1. Clean an Address Using USPS API</p>
-                        <p>2. How to Use the USPS API</p>
+                        <h1>1. Clean an Address Using USPS API</h1>
+                        <h1>2. How to Use the USPS API using Python, Javascript or PHP</h1>
                     </div>
-                    <img src="./postman.svg"/>
+                    <img src="./postman.svg" />
                     <div class='step flex md:items-center space-x-4 py-4 mt-12'>
-                        <div
-                            class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
-                            1
+                        <div className="flex items-center justify-center">
+                            <h2 className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white text-sm font-medium">
+                                1
+                            </h2>
                         </div>
                         <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Clean a US Address Using USPS API</h1>
                     </div>
@@ -286,12 +287,17 @@ export default function AddressClean() {
                         }
 
                     </div>
-                    <div class='step flex md:items-center space-x-4 py-4 mt-16'>
-                        <div
+                    <div class='step flex md:items-center gap-x-6 py-4 mt-16'>
+                        {/* <div
                             class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
                             2
+                        </div> */}
+                        <div className="flex items-center justify-center">
+                            <h2 className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white text-sm font-medium">
+                                2
+                            </h2>
                         </div>
-                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How can I Clean An Address Using the USPS API</h1>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">How can I Clean An Address Using the USPS API using Python, Javascript or PHP</h1>
                     </div>
                     <div className='leading-8'>
                         <p class='mt-8'>Follow these steps to use the USPS API.</p>
