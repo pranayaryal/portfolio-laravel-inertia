@@ -208,7 +208,7 @@ export default function AddressClean() {
                                 1
                             </h2>
                         </div>
-                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Clean a US Address Using USPS API</h1>
+                        <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-2xl mb-0">Demo of USPS API for address validation</h1>
                     </div>
                     <p>Here is an example for the use of USPS address validation API.</p>
                     <p className='mt-8 text-xs text-black/50'>Enter an address that you want to be standardized. You can copy from
