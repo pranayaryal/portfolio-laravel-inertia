@@ -10,7 +10,7 @@ return (
     <Head>
         <title>What is a Randomized Controlled Trial in Research?</title>
         <meta name="description"
-            content="An explanation about Randomized Controlled Trials (RCT) of how they are designed and the source of biases" />
+            content="Randomized Controlled Trials (RCT) | Randomized Controlled Trial Definition | rcts studies" />
     </Head>
     <div className="max-w-[600px] mx-auto">
         <NejmLogo />
