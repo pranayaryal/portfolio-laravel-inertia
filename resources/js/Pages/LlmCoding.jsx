@@ -65,6 +65,7 @@ export default function LlmCoding() {
                 <p class='mt-4 md:mt-2'>This is better than ChatGPT because you don't have to give your data away.</p>
                 <p class='mt-4 md:mt-2'>Software developers like me can use LLMs to answer their questions and to understand code written by someone else.</p>
                 <p class='mt-4 md:mt-2'>Writers can leverage this tool to refine their concepts and rephrase their linguistic expressions</p>
+                <p class='mt-4 md:mt-2'>You can also use models like deepseek-l2 locally with neovim</p>
                 <div class='step flex md:items-center space-x-4 py-4 mt-12'>
                     <div
                         class="flex items-center justify-center border border-gray-200 font-extrabold dark:border-gray-900 rounded-full h-8 w-8 text-green-500 text-md">
