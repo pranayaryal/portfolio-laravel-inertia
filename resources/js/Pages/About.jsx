@@ -14,6 +14,7 @@ export default function About() {
                         <h1 className="text-3xl fong-serif">About Me</h1>
                         <p className='my-5'>I'm Pranay Aryal, a self-taught software developer who attended the YouTube University.</p>
                         <p className='my-5'>I mainly write for my future forgetful self but if it helps you, I'm good.  If I'm not coding, you will find me playing the piano, or<br />cooking. </p>
+	    <p className='my-5'>I have a degree in medicine and like to critically appraise research studies.</p>
                     </div>
                     <img src="./about.svg" className='mt-8' />
                 </div>

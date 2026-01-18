@@ -9,7 +9,6 @@ export default function Bm25() {
             <Head>
                 <title>What is BM25 Algorithm (Best Match 25)</title>
                 <meta name="description" content="BM25 (Best Match 25) is a search method thanks ranks documents based on a search query" />
-                <link rel="canonical" href="https://pranaysite.com/bm25-algorithm" />
             </Head>
             <div class="max-w-[567px] mx-auto py-16">
                 <h1 class="tracking-tight leading-6 font-semibold text-lg md:text-4xl">What is BM25 Algorithm</h1>
